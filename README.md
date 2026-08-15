@@ -13,20 +13,27 @@ Published for free on GitHub Pages. No paywalls, no gated content.
 ## Structure
 
 ```
-index.html                  landing page
+index.html                            landing page
+assets/
+  site.css                            design system (tokens, type, components)
+  fonts.css                           self-hosted Newsreader @font-face
+  fonts/                              Newsreader variable TTFs + woff2 + static instances
 white-papers/
   core-pillars-of-ai-ready-banking.html   print-ready source of paper 01
   core-pillars-of-ai-ready-banking.pdf    paper 01 as PDF
+_build_pdf.py                       PDF typesetter (pure Python, no browser)
 ```
 
 ## How the PDF is generated
 
-The HTML file is print-styled (A4, cover page, page numbers). To rebuild the PDF locally, free tools only:
+The HTML file is the single source of truth. `_build_pdf.py` parses it
+(html.parser), typesets it with fpdf2, and embeds Newsreader static instances
+made with fontTools (from the variable TTFs in `assets/fonts/`). Fully offline,
+free, and browser-free:
 
 ```
-chrome --headless=new --disable-gpu --no-pdf-header-footer \
-  --print-to-pdf=white-papers/core-pillars-of-ai-ready-banking.pdf \
-  file:///path/to/white-papers/core-pillars-of-ai-ready-banking.html
+pip install fpdf2 fonttools brotli
+python _build_pdf.py
 ```
 
 ## Site

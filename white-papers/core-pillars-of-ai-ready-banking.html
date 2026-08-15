@@ -3,144 +3,74 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Core Pillars of AI-Ready Banking | White Paper</title>
+<title>Core Pillars of AI-Ready Banking | White Paper 01</title>
+<meta name="description" content="White paper: the data, delivery, and governance foundations a bank needs before AI can make decisions in real time.">
+<meta property="og:title" content="Core Pillars of AI-Ready Banking">
+<meta property="og:description" content="Three pillars and four use cases that turn AI from a pilot into a decision engine inside a regulated bank.">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230d1b2a'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' fill='%23b8893e' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/fonts.css">
+<link rel="stylesheet" href="../assets/site.css">
 <style>
-  :root {
-    --navy: #101f38;
-    --navy2: #16294a;
-    --gold: #c9a24b;
-    --ink: #202a38;
-    --muted: #5b6b7c;
-    --line: #e2e8f0;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  body {
-    font-family: Georgia, "Times New Roman", serif;
-    color: var(--ink);
-    font-size: 10.5pt;
-    line-height: 1.62;
-  }
-
+  /* ---------- print: the paper is the artifact ---------- */
   @page { size: A4; margin: 20mm 17mm; }
   @page cover { margin: 0; }
-  @page { @bottom-right { content: counter(page); font-family: "Segoe UI", Arial, sans-serif; font-size: 8pt; color: #94a3b3; } }
+  @page { @bottom-right { content: counter(page); font-family: "Segoe UI", Arial, sans-serif; font-size: 8pt; color: #8a97a5; } }
   @page cover { @bottom-right { content: none; } }
 
-  /* ---------- cover ---------- */
-  .cover {
-    page: cover;
-    height: 297mm;
-    background: var(--navy);
-    color: #fff;
-    padding: 36mm 26mm;
-    position: relative;
-    page-break-after: always;
-  }
-  .cover .kicker {
-    font-family: "Segoe UI", Arial, sans-serif;
-    letter-spacing: .3em;
-    font-size: 8.5pt;
-    color: var(--gold);
-    text-transform: uppercase;
-  }
-  .cover h1 {
-    font-size: 30pt;
-    line-height: 1.18;
-    font-weight: normal;
-    margin: 16mm 0 9mm;
-  }
-  .cover .subtitle {
-    font-size: 12.5pt;
-    line-height: 1.55;
-    color: #b9c7d9;
-    max-width: 128mm;
-  }
-  .cover .meta {
-    position: absolute;
-    bottom: 26mm;
-    left: 26mm;
-    right: 26mm;
-    border-top: 1px solid rgba(255,255,255,.25);
-    padding-top: 7mm;
-    font-family: "Segoe UI", Arial, sans-serif;
-    font-size: 9pt;
-    color: #93a5bb;
-    display: flex;
-    justify-content: space-between;
-  }
+  .cover { display: none; } /* print only */
 
-  /* ---------- body ---------- */
-  section { padding: 0; }
-  h2 {
-    font-family: "Segoe UI", Arial, sans-serif;
-    font-size: 15pt;
-    font-weight: 600;
-    color: var(--navy);
-    margin: 0 0 6mm;
-    padding-bottom: 3mm;
-    border-bottom: 2px solid var(--line);
-    page-break-after: avoid;
+  @media print {
+    .site-head, .back-link, .paper-cta, .download-card, .paper-heading { display: none !important; }
+    .paper-layout { display: block; }
+    .article { max-width: none; }
+    .article p { font-size: 10.5pt; line-height: 1.7; margin-bottom: 4mm; }
+    .article h2 { font-size: 14pt; margin: 9mm 0 4mm; border-bottom: 1px solid #d8dde3; padding-bottom: 2mm; page-break-after: avoid; }
+    .article h3 { font-size: 11pt; margin: 7mm 0 2.5mm; page-break-after: avoid; }
+    .article .lede { font-size: 12pt; border-left: 3px solid #b8893e; padding-left: 5mm; }
+    .article .box { background: #e9edf1; border: 1px solid #d8dde3; }
+    .article ul, .article ol { margin-bottom: 4mm; }
+    .colophon { font-size: 8.5pt; }
+
+    .cover {
+      display: block;
+      page: cover;
+      height: 297mm;
+      background: #0d1b2a;
+      color: #ffffff;
+      padding: 36mm 26mm;
+      position: relative;
+      page-break-after: always;
+    }
+    .cover .kicker {
+      font-family: "Segoe UI", Arial, sans-serif;
+      letter-spacing: 0.3em;
+      font-size: 8.5pt;
+      color: #c8a15c;
+      text-transform: uppercase;
+    }
+    .cover h1 { font-size: 30pt; line-height: 1.18; font-weight: 600; margin: 16mm 0 9mm; color: #ffffff; }
+    .cover .subtitle { font-size: 12.5pt; line-height: 1.55; color: #b9c7d9; max-width: 128mm; }
+    .cover .meta {
+      position: absolute; bottom: 26mm; left: 26mm; right: 26mm;
+      border-top: 1px solid rgba(255, 255, 255, 0.25); padding-top: 7mm;
+      font-family: "Segoe UI", Arial, sans-serif; font-size: 9pt; color: #93a5bb;
+      display: flex; justify-content: space-between;
+    }
   }
-  h2 .num { color: var(--gold); margin-right: 3mm; font-weight: 600; }
-  h3 {
-    font-family: "Segoe UI", Arial, sans-serif;
-    font-size: 11pt;
-    font-weight: 600;
-    color: var(--navy2);
-    margin: 7mm 0 3mm;
-    page-break-after: avoid;
-  }
-  p { margin: 0 0 4mm; }
-  ul { margin: 0 0 4mm 5mm; }
-  li { margin-bottom: 2mm; }
-  strong { color: var(--navy); }
-  .paper-title {
-    font-family: "Segoe UI", Arial, sans-serif;
-    font-size: 17pt;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 6mm;
-  }
-  .lede {
-    font-size: 11.5pt;
-    line-height: 1.6;
-    color: #33445a;
-    border-left: 3px solid var(--gold);
-    padding-left: 5mm;
-    margin-bottom: 8mm;
-  }
-  .box {
-    background: #f4f7fb;
-    border: 1px solid var(--line);
-    border-radius: 2mm;
-    padding: 5mm 6mm;
-    margin: 6mm 0;
-  }
-  .box .box-label {
-    font-family: "Segoe UI", Arial, sans-serif;
-    font-size: 8pt;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 2.5mm;
-  }
-  .pillars { margin: 6mm 0; }
-  .colophon {
-    margin-top: 14mm;
-    padding-top: 4mm;
-    border-top: 1px solid var(--line);
-    font-size: 8.5pt;
-    color: var(--muted);
-    font-family: "Segoe UI", Arial, sans-serif;
-    line-height: 1.6;
-  }
-  .pagebreak { page-break-before: always; }
 </style>
 </head>
 <body>
 
-<!-- ================= COVER ================= -->
+<header class="site-head">
+  <a class="wordmark" href="../index.html">AI-Ready <span>Banking</span></a>
+  <nav aria-label="Site">
+    <a href="../index.html#papers">Papers</a>
+    <a href="../index.html#series">The series</a>
+  </nav>
+</header>
+
+<!-- ================= print cover ================= -->
 <div class="cover">
   <div class="kicker">White Paper &middot; No. 01</div>
   <h1>Core Pillars of AI-Ready Banking</h1>
@@ -151,99 +81,120 @@
   </div>
 </div>
 
-<!-- ================= BODY ================= -->
-<section>
-  <h2><span class="num">1</span>Executive summary</h2>
+<main class="wrap">
 
-  <p>Most banks already run machine learning somewhere. A fraud score here, a credit-risk model there, a chatbot answering basic questions. The thing that separates those banks from an AI-ready bank is rarely the model. It is the plumbing around it. The data that never quite matches between systems. The batch file that arrives once a day, hours after the customer has already transacted. The model that nobody can explain to the auditor.</p>
+  <header class="paper-heading">
+    <a class="back-link" href="../index.html">All papers</a>
+    <p class="kicker">White paper No. 01 &middot; August 2026</p>
+    <h1>Core Pillars of AI-Ready Banking</h1>
+    <p class="subtitle">What it takes for a bank to put AI in the decision path: one clean view of the customer, events that arrive in time, and governance the system enforces on itself.</p>
+    <p class="meta-row">PDF 42 KB - 6 pages - A4</p>
+    <div class="paper-cta">
+      <a class="btn primary" href="core-pillars-of-ai-ready-banking.pdf">Download PDF</a>
+      <a class="btn ghost" href="../index.html">Back to the series</a>
+    </div>
+  </header>
 
-  <p>Being AI-ready means the foundation is in place before the models are: clean and centralized data, live event feeds, and governance that is built into the system rather than bolted on after launch. This paper walks through those three pillars and then through four use cases that put them to work.</p>
+  <div class="paper-layout">
+    <article class="article">
 
-  <div class="box">
-    <div class="box-label">The short version</div>
-    <p>The model is the easy part. The data, the delivery, and the rules are the hard parts. Get those three right and the models become interchangeable; get them wrong and the best model in the world will be scored on stale data, late, and without a defensible answer to the regulator.</p>
+      <p class="lede">Most banks already run machine learning somewhere. The thing that separates them from an AI-ready bank is rarely the model. It is the plumbing around it.</p>
+
+      <h2><span class="num">1</span>Executive summary</h2>
+      <p>Most banks already run machine learning somewhere. A fraud score here, a credit-risk model there, a chatbot answering basic questions. The thing that separates those banks from an AI-ready bank is rarely the model. It is the plumbing around it. The data that never quite matches between systems. The batch file that arrives once a day, hours after the customer has already transacted. The model that nobody can explain to the auditor.</p>
+      <p>Being AI-ready means the foundation is in place before the models are: clean and centralized data, live event feeds, and governance that is built into the system rather than bolted on after launch. This paper walks through those three pillars and then through four use cases that put them to work.</p>
+
+      <div class="box">
+        <p class="box-label">The short version</p>
+        <p>The model is the easy part. The data, the delivery, and the rules are the hard parts. Get those three right and the models become interchangeable; get them wrong and the best model in the world will be scored on stale data, late, and without a defensible answer to the regulator.</p>
+      </div>
+
+      <h2><span class="num">2</span>Why most banks are not AI-ready</h2>
+      <p>Two habits hold banks back, and both are about heritage more than choice.</p>
+      <p>The first is batching. Core banking platforms were built when the natural unit of work was a settlement cycle, not a decision. Data is still copied to a warehouse overnight, and every AI signal that depends on that copy is at least a day old. That is fine if the question is about last quarter. It fails when the question is about the card swiping right now.</p>
+      <p>The second is fragmentation. A customer exists in the core banking system, in the CRM, in the fraud platform, and in the complaints log, and those versions do not agree. Products teams build personalization on one version of the customer while risk teams score a different one. The AI gets as many versions of the truth as the bank has systems, and since they conflict, the model hedges, which in practice means it guesses.</p>
+      <p>There is a cultural version of the same problem. Banking is built around being careful, and the default posture toward anything new is to slow it down until it is harmless. That instinct is worth keeping, but in its naive form it produces paralysis. The answer to risk is not to avoid AI; it is to run AI the way a bank already runs every other form of risk, with clear ownership, limits, and a paper trail. That is exactly what the regulatory pillar is for.</p>
+
+      <h2><span class="num">3</span>The three pillars</h2>
+      <p>Everything in this paper hangs on three structural decisions. They are presented in the order they should be built, because each one makes the next one dramatically easier.</p>
+
+      <h3>Pillar 1: A unified data foundation</h3>
+      <p>Put the customer in one place. A modern lakehouse gives you object storage plus an open table format (Delta Lake or Apache Iceberg, for example) plus a query engine that can read it. It can hold raw landing data, curated customer tables, streaming sinks, feature stores, everything the models are going to eat from. It does not require replacing the core, and it replaces the nightly fire-hose of copies with a single destination: core banking, CRM, fraud systems, and channels all drain into the same lake, and models read from that lake rather than from each silo.</p>
+      <p>Done properly, the data foundation gives you:</p>
+      <ul>
+        <li>A single identity for each customer that is consistent across products. The lending system and the fraud system agree on who the person is.</li>
+        <li>Data quality as a system property: freshness checks, schema checks, and lineage recorded on every table.</li>
+        <li>One access control layer with tiered permission, so plain access to customer data is centrally controlled rather than scattered across team logins.</li>
+        <li>History that cannot be quietly overwritten, which matters later when a regulator asks what the model saw at decision time.</li>
+      </ul>
+
+      <h3>Pillar 2: Real-time orchestration</h3>
+      <p>Batch is for training. Streaming is for deciding. A unified data foundation feeds models in batch, but real-time AI needs a second layer between the data and the application: event-driven APIs and streaming that push transactions, account events, device changes, and application submissions into models as they happen.</p>
+      <p>A banking event stream looks like Kafka or a cloud equivalent. Every meaningful action becomes an event: a payment posted, a card used abroad, a login from a new device, a loan application, a chat opened. Models subscribe to the events they need, score them, and return a decision before the customer has ended the interaction.</p>
+      <p>Three latency budgets show the range. Fraud decisions have milliseconds to work with, while the payment is still in the switch. Personalization runs in hundreds of milliseconds or low seconds, while a customer is looking at the app. Lending decisions get seconds to minutes, because a customer will wait for an answer and the model has time to fetch alternative data. Every layer builds its own budget into the design rather than hoping the batch job arrives in time.</p>
+
+      <h3>Pillar 3: Regulatory governance</h3>
+      <p>This is the pillar banks are asked about first, and it sets whether the other two can run. The idea is simple: build the controls into the machine. A regulator expects the bank to be able to answer how a decision was made, who approved the model, what it can do, and what happens when it goes wrong.</p>
+      <p>Practical governance looks like this:</p>
+      <ul>
+        <li>A model inventory. Every model, including pilots, is catalogued: owner, purpose, risk tier, versions, approval state.</li>
+        <li>Risk-tiering. Low-tier models get light controls; high-tier ones, which touch credit, capital, or customer money decisions, get independent validation and challenger models.</li>
+        <li>Compliance tracking that records every deployment, every retraining, and every override a human makes, as auditable events.</li>
+        <li>Explainability where it matters. Credit decisions are regulated to be explainable, so the model output ships with a human-readable reasons list, and the reasoning is saved with the decision record.</li>
+      </ul>
+      <p>The point of doing this in the system is that governance becomes a gate, not a form. A deployment is blocked if the challenger test has not run. A feature is blocked if its bias check is not logged. The compliance team stops chasing after models and reviews the trails the system itself produces, which is what built-in means in practice.</p>
+
+      <h2><span class="num">4</span>Key use cases</h2>
+      <p>The pillars only pay for themselves when they carry real products. These four use cases show up in every serious bank program, and they share the same ingredients in different measures: clean real-time data, fast decisions, and a defensible record.</p>
+
+      <h3>Fraud prevention</h3>
+      <p>The strongest case for real-time. A transaction is scored in the switch while it is still moving, using transaction velocity, device reputation, behavioral pattern deviation, and the customer's own history. The bank wins by being fast, and the window is milliseconds. The same stack also cuts false declines, because a behavioral model can tell "customer in a taxi at 2am" from "customer's card at a busted terminal" without blocking everybody.</p>
+
+      <h3>Hyper-personalization</h3>
+      <p>Recommendations used to mean: run the batch, email the segment, wait, and hope. The difference now is the moment. When a transaction posts, when a customer opens the app, when a balance dips below a threshold, the model produces the next best action: a product suggestion, a spending insight, a warning. It uses the unified data foundation to see the whole customer relationship rather than a single product, and the results show up in the channel the customer is already in. This is the use case that quietly lifts engagement and loyalty, because the customer feels understood instead of marketed at.</p>
+
+      <h3>Automated lending</h3>
+      <p>Credit decisions have traditionally run on bureau scores, which leave a large share of good borrowers invisible: thin-file, new-to-credit, self-employed. Alternative data changes that. Cash-flow history, transaction behavior, and repayment patterns can be drawn from the unified data layer, and the decision runs in minutes rather than weeks. The risk framework has to catch up, and explainability applies; lenders and regulators want to know what drove a decline. But the payoff is measurable: faster approvals, wider access, and a lower-cost credit process. The loan decision becomes a real-time service, falling out of the same pipeline as the fraud check.</p>
+
+      <h3>Conversational assistants</h3>
+      <p>The fourth use case is where AI meets the contact center. The virtual agent takes the routine work: balance inquiries, statement questions, payment scheduling, frequently asked questions, policy wordings. It answers from retrieval over the bank's own documents, and when it is not confident it says so instead of inventing an answer. Everything above its confidence threshold is routed to a human, with the conversation summarized and context passed along so the person does not start from zero. The assistant carries the same customer record from the unified foundation, and the human handles the exceptions.</p>
+
+      <h2><span class="num">5</span>A realistic starting point</h2>
+      <p>A bank taking this seriously does not need to modernize everything at once. The sequence matters more than the scope:</p>
+      <ol>
+        <li><strong>Pick one path.</strong> Fraud prevention or onboarding is a good first, because the data is yours. Define the narrow set of decisions that path needs.</li>
+        <li><strong>Build the data for that path first.</strong> A small lake, one region of the bank, used by the model you pilot. Not the whole enterprise.</li>
+        <li><strong>Add the events for that path.</strong> The streaming layer connects the path's real transactions to the model.</li>
+        <li><strong>Wrap it in governance on day one.</strong> A pilot is still a model. It gets an inventory entry, a risk tier, an owner, and explicable output.</li>
+        <li><strong>Measure the baseline before you launch.</strong> Fraud losses, false positives, decision latency, approval rates. Then measure again after, and the numbers will tell you whether to scale the pattern, not the model.</li>
+      </ol>
+      <p>Once the first path is live and provable, the second one is surprisingly cheap: the lake is already there, the governance patterns are already there, and only the new domain's data and events need to be added. That is the compounding advantage of starting with the pillars instead of the model.</p>
+
+      <h2><span class="num">6</span>Conclusion</h2>
+      <p>AI is not the differentiator. The foundations are. A bank with one unified view of its customers, event streams that deliver decisions in time, and models whose reasoning is documented and enforced will compete on its products and service. A bank with great models and none of those foundations will keep fighting its own data, late, without a story to tell the regulator.</p>
+      <p>Start with data, then real time, then the rules. The first use case follows. That is the whole paper, and it answers the only question in the title, which is often confused with the question of how to buy models.</p>
+
+      <div class="colophon">
+        <strong>About this paper</strong><br>
+        Part of the AI-Ready Banking white paper series. Written for banking, fintech, and product teams designing the AI layer of a regulated business. August 2026. Free to read, share, and cite.
+      </div>
+    </article>
+
+    <aside class="download-card" aria-label="Paper download">
+      <p class="dc-label">Download</p>
+      <p class="dc-file">Core Pillars of AI-Ready Banking</p>
+      <p class="dc-meta">PDF 42 KB - 6 pages</p>
+      <a class="btn primary" href="core-pillars-of-ai-ready-banking.pdf">Download PDF</a>
+      <p class="dc-note">Typeset at A4 with a cover page, ready to print or attach.</p>
+    </aside>
   </div>
 
-  <h2><span class="num">2</span>Why most banks are not AI-ready</h2>
+</main>
 
-  <p>Two habits hold banks back, and both are about heritage more than choice.</p>
-
-  <p>The first is batching. Core banking platforms were built when the natural unit of work was a settlement cycle, not a decision. Data is still copied to a warehouse overnight, and every AI signal that depends on that copy is at least a day old. That is fine if the question is about last quarter. It fails when the question is about the card swiping right now.</p>
-
-  <p>The second is fragmentation. A customer exists in the core banking system, in the CRM, in the fraud platform, and in the complaints log, and those versions do not agree. Products teams build personalization on one version of the customer while risk teams score a different one. The AI gets as many versions of the truth as the bank has systems, and since they conflict, the model hedges, which in practice means it guesses.</p>
-
-  <p>There is a cultural version of the same problem. Banking is built around being careful, and the default posture toward anything new is to slow it down until it is harmless. That instinct is worth keeping, but in its naive form it produces paralysis. The answer to risk is not to avoid AI; it is to run AI the way a bank already runs every other form of risk, with clear ownership, limits, and a paper trail. That is exactly what the regulatory pillar is for.</p>
-
-  <h2><span class="num">3</span>The three pillars</h2>
-
-  <p>Everything in this paper hangs on three structural decisions. They are presented in the order they should be built, because each one makes the next one dramatically easier.</p>
-
-  <h3>Pillar 1: A unified data foundation</h3>
-  <p>Put the customer in one place. A modern lakehouse gives you object storage plus an open table format (Delta Lake or Apache Iceberg, for example) plus a query engine that can read it. It can hold raw landing data, curated customer tables, streaming sinks, feature stores, everything the models are going to eat from. It does not require customers to replace the core, and it replaces the nightly fire-hose of copies with a single destination: core banking, CRM, fraud systems, and channels all drain into the same lake, and models read from that lake rather than from each silo.</p>
-  <p>Done properly, the data foundation gives you:</p>
-  <ul>
-    <li>A single identity for each customer that is consistent across products. The lending system and the fraud system agree on who the person is.</li>
-    <li>Data quality as a system property: freshness checks, schema checks, and lineage recorded on every table.</li>
-    <li>One access control layer with tiered permission, so plain access to customer data is centrally controlled rather than scattered across team logins.</li>
-    <li>History that cannot be quietly overwritten, which matters later when a regulator asks what the model saw at decision time.</li>
-  </ul>
-
-  <h3>3.2 Real-time orchestration</h3>
-  <p>Batch is for training. Streaming is for deciding. A unified data foundation feeds models in batch for training. Yet real-time AI needs the live event. So a second layer sits between the data and the application: event-driven APIs and streaming that push transactions, account events, device changes, and application submissions into models as they happen.</p>
-  <p>A banking event stream looks like Kafka or a cloud equivalent. Every meaningful action becomes an event: a payment posted, a card used abroad, a login from a new device, a loan application, a chat opened. Models subscribe to the events they need, score them, and return a decision before the customer has ended the interaction.</p>
-  <p>Three latency budgets show the range. Fraud decisions have milliseconds to work with, while the payment is still in the switch. Personalization runs in hundreds of milliseconds or low seconds, while a customer is looking at the app. Lending decisions get seconds to minutes since a customer will wait for an answer and the model has time to fetch alternative data. Every layer builds its own budget into the design rather than hoping the batch job arrives in time.</p>
-
-  <h3>3.3 Regulatory governance</h3>
-  <p>This is the pillar banks are asked about first, and it is the one that determines whether the other two can run. The idea is simple: build the controls into the machine, and a regulator expects the bank to be able to answer how a decision was made, who approved the model, what it can do, and what happens when it goes wrong.</p>
-  <p>Practical governance looks like this:</p>
-  <ul>
-    <li>A model inventory. Every model, including pilots, is catalogued: owner, purpose, risk tier, versions, approval state.</li>
-    <li>Risk-tiering. Low-tier models get light controls; high-tier ones, which touch credit, capital, or customer money decisions, get independent validation and challenger models.</li>
-    <li>Compliance tracking that records every deployment, every retraining, every override a human makes, as auditable events.</li>
-    <li>Explainability where it matters. Credit decisions are regulated to be explainable, so the model output ships with a human-readable reasons list, and the reasoning is saved with the decision record.</li>
-  </ul>
-  <p>The point of doing this in the machine is that governance becomes a gate, not a form. A model deployment is blocked if the challenger test has not run. A feature is blocked if its bias check is not logged. The compliance team stops chasing after models and reviews the trails the system itself produces, which is what "built-in" means in practice.</p>
-
-  <h2><span class="num">4</span>Key use cases</h2>
-
-  <p>The pillars only pay for themselves when they carry real products. These four use cases are the ones that show up in every serious bank program, and they share the same ingredients in different measures: clean real-time data, fast decisions, and a defensible record.</p>
-
-  <h3>Fraud prevention</h3>
-  <p>The strongest case for real-time. A transaction is scored in the switch, four models stacked: transaction velocity, device reputation, behavioral pattern deviation, and the customer's own history. The bank wins by being fast, not by being big, and the window is milliseconds. What finally makes real-time good for customers: far fewer false declines, because a behavioral model can distinguish "customer in a taxi at 2am" from "customer's card at a busted terminal" without blocking everybody.</p>
-
-  <h3>Hyper-personalization</h3>
-  <p>Recommendations used to mean: run the batch, email the segment, wait, and hope. The difference now is the moment. When a transaction posts, when a customer opens the app, when a balance dips below a threshold, the model produces the next best action: a product suggestion, a spending insight, a warning. It uses the unified data foundation to know the whole customer relationship rather than just one product, and the results show up in the channel the customer is already in. This is the use case that will quietly raise net interest margins and loyalty, because the customer feels understood instead of marketed at.</p>
-
-  <h3>Automated lending</h3>
-  <p>Credit decisions have traditionally run on bureau scores, which leave a large share of good borrowers invisible: thin-file, new-to-credit, self-employed, gig-economy. Alternative data changes that. Cash-flow history, transaction behavior, repayment patterns from other products, and other data can be drawn from the unified data layer and scored in minutes rather than weeks. The risk framework has to catch up, and regulated explainability applies; lenders and regulators want to know materially what drove a decline. But the payoff is measurable: faster approvals, wider access, and a lower-cost credit process. The loan decision becomes a real-time service, falling out of the same pipeline as the fraud check.</p>
-
-  <h3>Conversational assistants</h3>
-  <p>The fourth use case is where AI meets the contact center. The assistant, or virtual agent, takes the routine work: balance inquiries, statement questions, payment schedules, frequently asked questions, policy wordings. It answers from retrieval over the bank's own documents, and when it is not confident it says so instead of inventing an answer. Everything above its confidence level is routed to a human, with the conversation summarized and context passed along so the person doesn't start from zero. The assistant reduces call volume, the human handles the exceptions, and both carry the same customer record from the unified foundation.</p>
-
-  <h2><span class="num">5</span>A realistic starting point</h2>
-
-  <p>A bank taking this seriously does not need to modernize everything at once. The sequence matters more than the scope:</p>
-
-  <ol>
-    <li><strong>Pick one path.</strong> Fraud prevention or onboarding is a good first because the data is yours. Define the specific, narrow set of decisions that path needs.</li>
-    <li><strong>Build the data for that path first.</strong> A small lake, one region of the bank, used by the model you pilot. Not the whole enterprise.</li>
-    <li><strong>Add the events for that path.</strong> The streaming layer connects the path's real transactions to the model.</li>
-    <li><strong>Wrap it in governance on day one.</strong> A pilot is still a model. It gets an inventory entry, a risk tier, an owner, and explicable output.</li>
-    <li><strong>Measure the baseline before you launch.</strong> Fraud losses, false positives, decision latency, approval rates. Then measure again after, and the numbers will tell you whether to scale the pattern, not the model.</li>
-  </ol>
-
-  <p>Once the first path is live and provable, the second one is surprisingly cheap: the lake is already there, the governance patterns are already there, and only the new domain's data and events need to be added. That is the compounding advantage of starting with the pillars instead of the model.</p>
-
-  <h2><span class="num">6</span>Conclusion</h2>
-
-  <p>AI is not the differentiator. The foundations are. A bank that has one unified view of its customers, event streams that deliver decisions in time, and models whose reasoning is documented and enforced will compete on its products and service. A bank with great models and none of those foundations will keep fighting its own data, late, without a story to tell the regulator.</p>
-  <p>Start with data, then real time, then the rules. The first use case follows. That is the whole paper, and it answers the only question in the title, which is often confused with the question of how to buy models.</p>
-
-  <div class="colophon">
-    <strong>About this paper</strong><br>
-    Part of the AI-Ready Banking white paper series. Written for banking, fintech, and product teams designing the AI layer of a regulated business. August 2026. Free to read, share, and cite.
-  </div>
-</section>
+<footer class="site-footer wrap">
+  <span><span class="strong">AI-Ready Banking</span> &middot; free white paper series</span>
+  <span>Paper 01 of the series. <a href="../index.html" style="color:inherit">Back to the index</a>.</span>
+</footer>
 
 </body>
 </html>

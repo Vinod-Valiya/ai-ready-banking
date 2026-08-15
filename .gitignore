@@ -1,0 +1,4 @@
+# local QA artifacts
+_shots/
+__pycache__/
+*.pyc
