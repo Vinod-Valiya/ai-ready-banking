@@ -61,6 +61,15 @@ PAPERS = [
         "date": "August 2026",
         "subject": "Enterprise agility and API-first architecture as the critical enablers of Open Banking transformation.",
     },
+    {
+        "slug": "why-cybersecurity-is-important-in-banking",
+        "no": "04",
+        "title": "Why Cybersecurity is Important in Banking",
+        "cover": ["Why Cybersecurity is", "Important in Banking"],
+        "subtitle": "How protecting data, payments, and trust became the strategic foundation of a modern bank, from fraud prevention to the resilience of critical infrastructure.",
+        "date": "August 2026",
+        "subject": "Why cybersecurity is the strategic foundation of digital banking: data protection, fraud prevention, trust, compliance, and operational resilience.",
+    },
 ]
 
 

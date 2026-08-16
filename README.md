@@ -11,6 +11,7 @@ Published for free on GitHub Pages. No paywalls, no gated content.
 | 01 | Core Pillars of AI-Ready Banking | Published |
 | 02 | The Strategic Benefits of REST APIs in Open Banking | Published |
 | 03 | Future of Banking: Open Banking | Published |
+| 04 | Why Cybersecurity is Important in Banking | Published |
 
 ## Structure
 
