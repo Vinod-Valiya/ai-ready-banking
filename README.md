@@ -23,6 +23,10 @@ assets/
 white-papers/
   core-pillars-of-ai-ready-banking.html   print-ready source of paper 01
   core-pillars-of-ai-ready-banking.pdf    paper 01 as PDF
+recommendations/
+  recommendations.html                   read-online page: letters behind the series
+  australian-military-bank-appreciation.pdf   original appreciation letter
+  resimac-recommendation-letter.pdf           original recommendation letter
 _build_pdf.py                       PDF typesetter (pure Python, no browser)
 ```
 
