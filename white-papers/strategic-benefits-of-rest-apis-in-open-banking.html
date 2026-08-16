@@ -4,16 +4,60 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Strategic Benefits of REST APIs in Open Banking | White Paper 02</title>
-<meta name="description" content="White paper: REST APIs as strategic business assets in Open Banking, Banking-as-a-Service, and embedded finance.">
+<meta name="description" content="White paper: REST APIs as the strategic foundation of Open Banking, Banking-as-a-Service, and embedded finance.">
 <meta property="og:title" content="The Strategic Benefits of REST APIs in Open Banking">
-<meta property="og:description" content="Enabling the future of connected financial services.">
+<meta property="og:description" content="How a standard interface becomes the foundation of Open Banking, Banking-as-a-Service, and embedded finance.">
 <meta property="og:type" content="article">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230d1b2a'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' fill='%23b8893e' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2317140f'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' fill='%23d9b36a' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="../assets/fonts.css">
 <link rel="stylesheet" href="../assets/site.css">
 <style>
-  .pdf-viewer { border: none; width: 100%; height: 82vh; display: block; background: #fff; }
-  .viewer-wrap { padding-block: 0 0 0; }
+  /* ---------- print: the paper is the artifact ---------- */
+  @page { size: A4; margin: 20mm 17mm; }
+  @page cover { margin: 0; }
+  @page { @bottom-right { content: counter(page); font-family: "Segoe UI", Arial, sans-serif; font-size: 8pt; color: #8a97a5; } }
+  @page cover { @bottom-right { content: none; } }
+
+  .cover { display: none; } /* print only */
+
+  @media print {
+    .site-head, .back-link, .paper-cta, .download-card, .paper-heading { display: none !important; }
+    .paper-layout { display: block; }
+    .article { max-width: none; }
+    .article p { font-size: 10.5pt; line-height: 1.7; margin-bottom: 4mm; }
+    .article h2 { font-size: 14pt; margin: 9mm 0 4mm; border-bottom: 1px solid #d8dde3; padding-bottom: 2mm; page-break-after: avoid; }
+    .article h3 { font-size: 11pt; margin: 7mm 0 2.5mm; page-break-after: avoid; }
+    .article .lede { font-size: 12pt; border-left: 3px solid #9a6b23; padding-left: 5mm; }
+    .article .box { background: #f0ede6; border: 1px solid #e4dfd4; }
+    .article ul, .article ol { margin-bottom: 4mm; }
+    .colophon { font-size: 8.5pt; }
+
+    .cover {
+      display: block;
+      page: cover;
+      height: 297mm;
+      background: #0d1b2a;
+      color: #ffffff;
+      padding: 36mm 26mm;
+      position: relative;
+      page-break-after: always;
+    }
+    .cover .kicker {
+      font-family: "Segoe UI", Arial, sans-serif;
+      letter-spacing: 0.3em;
+      font-size: 8.5pt;
+      color: #c8a15c;
+      text-transform: uppercase;
+    }
+    .cover h1 { font-size: 30pt; line-height: 1.18; font-weight: 600; margin: 16mm 0 9mm; color: #ffffff; }
+    .cover .subtitle { font-size: 12.5pt; line-height: 1.55; color: #b9c7d9; max-width: 128mm; }
+    .cover .meta {
+      position: absolute; bottom: 26mm; left: 26mm; right: 26mm;
+      border-top: 1px solid rgba(255, 255, 255, 0.25); padding-top: 7mm;
+      font-family: "Segoe UI", Arial, sans-serif; font-size: 9pt; color: #93a5bb;
+      display: flex; justify-content: space-between;
+    }
+  }
 </style>
 </head>
 <body>
@@ -26,29 +70,117 @@
   </nav>
 </header>
 
+<!-- ================= print cover ================= -->
+<div class="cover">
+  <div class="kicker">White Paper &middot; No. 02</div>
+  <h1>The Strategic Benefits of REST APIs in Open Banking</h1>
+  <div class="subtitle">REST APIs as the foundation of Open Banking: secure, scalable, real-time data exchange that makes Banking-as-a-Service and embedded finance possible.</div>
+  <div class="meta">
+    <span>AI-Ready Banking Series</span>
+    <span>August 2026</span>
+  </div>
+</div>
+
 <main class="wrap">
 
   <header class="paper-heading">
     <a class="back-link" href="../index.html">All papers</a>
     <p class="kicker">White paper No. 02 &middot; August 2026</p>
     <h1>The Strategic Benefits of REST APIs in Open Banking</h1>
-    <p class="subtitle">Enabling the future of connected financial services.</p>
-    <p class="meta-row">PDF 68 KB - 7 pages</p>
+    <p class="subtitle">REST APIs as the foundation of Open Banking: secure, scalable, real-time data exchange that makes Banking-as-a-Service and embedded finance possible.</p>
+    <p class="meta-row">PDF 40 KB - 5 pages - A4</p>
     <div class="paper-cta">
-      <a class="btn primary" href="strategic-benefits-of-rest-apis-in-open-banking.pdf">Download PDF</a>
-      <a class="btn ghost" href="../index.html">Back to the series</a>
+      <a href="strategic-benefits-of-rest-apis-in-open-banking.pdf">Download PDF</a>
+      <a href="../index.html">Back to the series</a>
     </div>
   </header>
 
-  <div class="viewer">
-    <iframe class="pdf-viewer" src="strategic-benefits-of-rest-apis-in-open-banking.pdf" title="The Strategic Benefits of REST APIs in Open Banking" loading="lazy"></iframe>
+  <div class="paper-layout">
+    <article class="article">
+
+      <p class="lede">Open Banking is a promise: a customer grants a third party access to their financial data, and approves where money and information move. REST APIs are the mechanism that keeps the promise. They turn a bank's capabilities into standard, addressable resources that approved applications can call, without ever exposing the systems underneath.</p>
+
+      <h2><span class="num">1</span>Executive summary</h2>
+      <p>Open Banking aims to make financial data portable: with the customer's consent, a bank can share account information with an authorized third party, and the third party can initiate payments back into the bank. For that to work across hundreds of institutions, someone has to define a common way to talk. In practice that common way is the REST API.</p>
+      <p>REST, short for Representational State Transfer, is an architectural style built on plain HTTP. It is simple, stateless, and predictable. Those qualities matter more in banking than anywhere else, because the parties talking are not members of one engineering team. They are separate companies, auditors, and regulators, and each side needs to understand what a call means.</p>
+      <p>This paper walks through what REST actually gives a bank: faster change, a single way to expose data, control over who sees what, and the ability to be bigger than the channels a bank owns. It ends with a set of recommendations for building the capability rather than buying a point solution.</p>
+
+      <div class="box">
+        <p class="box-label">The short version</p>
+        <p class="box">A REST API turns a bank capability into a product: documented, versioned, secured, and reusable. Done well, it takes the same core that runs a banks today and lets the whole market build on top of it, under rules the bank controls.</p>
+      </div>
+
+      <h2><span class="num">2</span>What REST APIs actually are</h2>
+      <p>REST is not software. It is a way of designing interfaces on top of HTTP, the same protocol the web runs on. Each piece of bank data, an account, a transaction, a card, a payment, is exposed as a resource with a URL. HTTP methods say what action a caller wants.</p>
+      <ul>
+        <li><strong>GET</strong> reads a resource, for example an account balance or a transaction list.</li>
+        <li><strong>POST</strong> creates a resource, for example a payment instruction or an enquiry.</li>
+        <li><strong>PUT</strong> and <strong>PATCH</strong> update a resource, such as a customer profile.</li>
+        <li><strong>DELETE</strong> removes a resource, such as a registered beneficiary.</li>
+      </ul>
+      <p>Typical resources in a banking REST API include accounts, transaction history, cards, loans, payments, beneficiaries, and customer profiles. An implementation built on a platform like Finacle exposes these as standard endpoint groups, account inquiry, transaction inquiry, funds transfer, loan management, and customer account services. Because the pattern repeats, a developer who has called one bank's API knows where to find things in any other bank's API.</p>
+      <p>The statelessness rule is what keeps REST cheap to operate. Each request carries everything the server needs to answer it: nobody holds a session open between calls. That makes it easy to run at scale, easy to time out, and easy to audit, because every call is a self-contained record.</p>
+
+      <h2><span class="num">3</span>The strategic benefits</h2>
+      <p>The reason APIs moved from the IT budget to the board agenda is that they change what a bank is capable of. The benefits below are the practical returns, roughly in the order a program starts to see them.</p>
+
+      <h3>Accelerating innovation</h3>
+      <p>When a capability is exposed as a reusable API, internal teams and external partners stop rebuilding it. A product team building a personal finance app calls the transaction API. A channel team building a lending journey calls the loan origination API. Both ship in weeks instead of months because the underlying service already exists, is tested, and is governed.</p>
+
+      <h3>Improving the customer experience</h3>
+      <p>Customers no longer accept one bank, one app, one web portal. They expect to see their accounts from several institutions in one place, to pay from a third-party app, and to get advice that draws on their full banking relationship. REST APIs make aggregation and composition possible: the capability stays in the bank, the context appears wherever the customer is. Data moves, identity stays.</p>
+
+      <h3>Driving ecosystem collaboration</h3>
+      <p>Open Banking only works when many organizations cooperate: banks, fintechs, payment providers, merchants, technology vendors. The API is the contract between them. It decides who can read what, who can trigger what, and what is recorded. With a well-described standard, partners join faster, and the bank does not hand out its core the way it would to a partner a construction project.</p>
+
+      <h3>Improving operational efficiency</h3>
+      <p>The old way to connect systems was point-to-point integration: one custom link per pair of systems, each built, tested, and maintained separately. REST replaces that mesh with a single interface. Once a service is exposed, every consumer uses the same channel. Integration work drops, change is released in place, and the platform team maintains one surface instead of hundreds of private bridges.</p>
+
+      <h3>Enabling real-time banking</h3>
+      <p>Batch still runs the world back office. But the front of the bank runs on request-time APIs: an account balance the moment a customer asks, a payment status before the customer leaves the screen, a loan amount while the applicant is still on the form. Real time does not mean every system is instant. It means the customer-facing answer comes from the API, and the settlement can trail it. That separation is what the REST layer delivers.</p>
+
+      <h3>Keeping security and consent in one place</h3>
+      <p>Security in an open model is about boundaries. Who is calling, what are they allowed to do, and did the customer approve it. REST APIs concentrate those three decisions into the gateway: authentication of the caller, authorization scoped to the consent, and encryption in transit. A bank can then say precisely what was shared, with whom, and under which consent, which is the same sentence a regulator asks for.</p>
+
+      <h3>Underpinning microservices and cloud</h3>
+      <p>Legacy banks are not rebuilt in a weekend; they are decomposed. The API is the cut line. A monolithic core can expose account services as one API today, then move the implementation behind that API to a microservice later, without changing what the consumers see. That is what an API-first migration means in practice: the interface stays still and the machinery behind it keeps moving.</p>
+
+      <h3>Creating revenue streams</h3>
+      <p>Banks can charge for what they expose: premium data products, a Banking-as-a-Service platform where other companies issue accounts and cards, embedded banking inside a merchant's checkout. REST helps because the billing and rate enforcement happen at the API boundary, not in the business logic. The capability that once covered the bank's own channels becomes an asset that covers the market.</p>
+
+      <h2><span class="num">4</span>Building the API-first strategy</h2>
+      <p>An API program fails when it is a project. It works when it is treated as a product. That shift shows up in four places:</p>
+      <ul>
+        <li><strong>Governance.</strong> Standards for versioning, naming, security, and deprecation, with an owner for every API.</li>
+        <li><strong>Product management.</strong> Each API has a value proposition, a known set of consumers, and success metrics.</li>
+        <li><strong>Platform.</strong> A centralized gateway with monitoring, analytics, documentation, and a developer portal.</li>
+        <li><strong>Operating model.</strong> Business and technology teams sit together and prioritize the API roadmap like a product backlog.</li>
+      </ul>
+
+      <h2><span class="num">5</span>Conclusion</h2>
+      <p>REST APIs are not a trend in this story; they are the structure under the trend. They give a regulated bank a safe, standard way to let the outside world build on top of it, without giving the outside world access to its guts. The banks that treat APIs as controllers of a product line will keep their customers front and center: safer to build, simpler to integrate, and a step ahead of the ones waiting for banking to look like this.</p>
+      <p>Start from your data that customers will grant most often, expose it well, measure usage, and let the market tell you what the account should be next. The infrastructure is standard. The strategy is yours.</p>
+
+      <div class="colophon">
+        <strong>About this paper</strong><br>
+        Part of the AI-Ready Banking white paper series. Written for banking, fintech, and product teams designing the AI layer of a regulated business. August 2026. Free to read, share, and cite.
+      </div>
+    </article>
+
+    <aside class="download-card" aria-label="Paper download">
+      <p class="dc-label">Download</p>
+      <p class="dc-file">The Strategic Benefits of REST APIs in Open Banking</p>
+      <p class="dc-meta">PDF 40 KB - 5 pages</p>
+      <a href="strategic-benefits-of-rest-apis-in-open-banking.pdf">Download PDF</a>
+      <p class="dc-note">Typeset at A4 with a cover page, ready to print or attach.</p>
+    </aside>
   </div>
 
 </main>
 
 <footer class="site-footer wrap">
-  <span><span class="strong">AI-Ready Banking</span> &middot; free white paper series</span>
-  <span>Paper 02 of the series. <a href="../index.html" style="color:inherit">Back to the index</a>.</span>
+  <span><span class="strong">AI-Ready Banking</span> - free white paper series</span>
+  <span>Paper 02 of the series. <a href="../index.html">Back to the index</a>.</span>
 </footer>
 
 </body>

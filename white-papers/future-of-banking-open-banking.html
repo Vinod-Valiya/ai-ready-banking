@@ -4,15 +4,60 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Future of Banking: Open Banking | White Paper 03</title>
-<meta name="description" content="White Paper: enterprise agility and API-first architecture as the critical enablers of Open Banking transformation.">
+<meta name="description" content="White paper: enterprise agility and API-first architecture as the critical enablers of Open Banking transformation.">
 <meta property="og:title" content="Future of Banking: Open Banking">
-<meta property="og:description" content="Transforming banking through enterprise agility and API-first architecture.">
+<meta property="og:description" content="Enterprise agility and an API-first architecture as the two critical enablers of Open Banking, with a framework for the transformation journey.">
 <meta property="og:type" content="article">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230d1b2a'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' fill='%23b8893e' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2317140f'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' fill='%23d9b36a' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="../assets/fonts.css">
 <link rel="stylesheet" href="../assets/site.css">
 <style>
-  .pdf-viewer { border-top: none; width: 100%; height: 82vh; display: block; background: #fff; }
+  /* ---------- print: the paper is the artifact ---------- */
+  @page { size: A4; margin: 20mm 17mm; }
+  @page cover { margin: 0; }
+  @page { @bottom-right { content: counter(page); font-family: "Segoe UI", Arial, sans-serif; font-size: 8pt; color: #8a97a5; } }
+  @page cover { @bottom-right { content: none; } }
+
+  .cover { display: none; } /* print only */
+
+  @media print {
+    .site-head, .back-link, .paper-cta, .download-card, .paper-heading { display: none !important; }
+    .paper-layout { display: block; }
+    .article { max-width: none; }
+    .article p { font-size: 10.5pt; line-height: 1.7; margin-bottom: 4mm; }
+    .article h2 { font-size: 14pt; margin: 9mm 0 4mm; border-bottom: 1px solid #d8dde3; padding-bottom: 2mm; page-break-after: avoid; }
+    .article h3 { font-size: 11pt; margin: 7mm 0 2.5mm; page-break-after: avoid; }
+    .article .lede { font-size: 12pt; border-left: 3px solid #9a6b23; padding-left: 5mm; }
+    .article .box { background: #f0ede6; border: 1px solid #e4dfd4; }
+    .article ul, .article ol { margin-bottom: 4mm; }
+    .colophon { font-size: 8.5pt; }
+
+    .cover {
+      display: block;
+      page: cover;
+      height: 297mm;
+      background: #0d1b2a;
+      color: #ffffff;
+      padding: 36mm 26mm;
+      position: relative;
+      page-break-after: always;
+    }
+    .cover .kicker {
+      font-family: "Segoe UI", Arial, sans-serif;
+      letter-spacing: 0.3em;
+      font-size: 8.5pt;
+      color: #c8a15c;
+      text-transform: uppercase;
+    }
+    .cover h1 { font-size: 30pt; line-height: 1.18; font-weight: 600; margin: 16mm 0 9mm; color: #ffffff; }
+    .cover .subtitle { font-size: 12.5pt; line-height: 1.55; color: #b9c7d9; max-width: 128mm; }
+    .cover .meta {
+      position: absolute; bottom: 26mm; left: 26mm; right: 26mm;
+      border-top: 1px solid rgba(255, 255, 255, 0.25); padding-top: 7mm;
+      font-family: "Segoe UI", Arial, sans-serif; font-size: 9pt; color: #93a5bb;
+      display: flex; justify-content: space-between;
+    }
+  }
 </style>
 </head>
 <body>
@@ -25,29 +70,160 @@
   </nav>
 </header>
 
+<!-- ================= print cover ================= -->
+<div class="cover">
+  <div class="kicker">White Paper &middot; No. 03</div>
+  <h1>Future of Banking: Open Banking</h1>
+  <div class="subtitle">Enterprise agility and an API-first architecture as the two critical enablers of Open Banking, with a framework for the transformation journey.</div>
+  <div class="meta">
+    <span>AI-Ready Banking Series</span>
+    <span>August 2026</span>
+  </div>
+</div>
+
 <main class="wrap">
 
   <header class="paper-heading">
     <a class="back-link" href="../index.html">All papers</a>
     <p class="kicker">White paper No. 03 &middot; August 2026</p>
     <h1>Future of Banking: Open Banking</h1>
-    <p class="subtitle">Transforming banking through enterprise agility and API-first architecture.</p>
-    <p class="meta-row">PDF 79 KB - 8 pages</p>
+    <p class="subtitle">Enterprise agility and an API-first architecture as the two critical enablers of Open Banking, with a framework for the transformation journey.</p>
+    <p class="meta-row">PDF 41 KB - 6 pages - A4</p>
     <div class="paper-cta">
-      <a class="btn primary" href="future-of-banking-open-banking.pdf">Download PDF</a>
-      <a class="btn ghost" href="../index.html">Back to the series</a>
+      <a href="future-of-banking-open-banking.pdf">Download PDF</a>
+      <a href="../index.html">Back to the series</a>
     </div>
   </header>
 
-  <div class="viewer">
-    <iframe class="pdf-viewer" src="future-of-banking-open-banking.pdf" title="Future of Banking: Open Banking" loading="lazy"></iframe>
+  <div class="paper-layout">
+    <article class="article">
+
+      <p class="lede">Banking was built as a set of closed boxes: each institution owned its customers, its data, and its channels. Open Banking takes the walls down, one consent at a time. The question is not whether the walls come down; it is which banks are ready to operate on the other side of them.</p>
+
+      <h2><span class="num">1</span>Executive summary</h2>
+      <p>The industry has spent a decade watching customer expectations move faster than its own core systems. Customers want their money, their data, and their products to work together, across banks, apps, and brands. Open Banking answers that by letting financial data move, with permission, between institutions and licensed third parties.</p>
+      <p>Regulators accelerated the change, but compliance is the floor, not the destination. The banks that gain from Open Banking treat it as a business model: new revenue from APIs, richer customer relationships, and a seat in a much larger ecosystem. That shift needs more than technology. It needs an organization that can move, and an architecture that lets it move.</p>
+      <p>This paper makes the case for two enablers: enterprise agility, which decides how fast a bank can change, and API-first architecture, which decides how far the change can reach. Both matter. One without the other leaves a bank with momentum and no platform, or a platform and no momentum.</p>
+
+      <div class="box">
+        <p class="box-label">The short version</p>
+        <p class="box">Open Banking pays off when an organization is agile enough to apply it and an API foundation is strong enough to carry it. Change the operating model and the architecture together, or neither works at the pace the market expects.</p>
+      </div>
+
+      <h2><span class="num">2</span>The shift from closed to open</h2>
+      <p>Most banks today still run on the shape they were given in the 1980s: proprietary systems, products designed at a head office, and data that lives inside the enterprise and rarely leaves. That shape assumes the bank is the whole market for the customer.</p>
+      <p>Open Banking assumes the opposite. The bank holds the customer's account and the customer holds the keys. A third party can read what the customer approves, and initiate what the customer requests. The bank's role shifts from owner of the relationship to custodian of the data and operator of the rails.</p>
+      <p>Seen in a table, the direction of travel is consistent:</p>
+      <ul>
+        <li>Closed ecosystems become open ones.</li>
+        <li>Product-centric planning becomes customer-centric.</li>
+        <li>Proprietary platforms become API-driven.</li>
+        <li>Limited collaboration becomes ecosystem collaboration.</li>
+        <li>Internal innovation becomes shared innovation.</li>
+        <li>Siloed data becomes connected data.</li>
+      </ul>
+      <p>None of this is a technology change alone. It is a change in what a bank believes it is for, and that is why the rest of this paper keeps returning to the organization.</p>
+
+      <h2><span class="num">3</span>Why Open Banking matters</h2>
+
+      <h3>Customer experience</h3>
+      <p>Customers gain control over their financial information and can use services from several providers in one flow: account aggregation, personal financial management, integrated lending, real-time payments, and automated advice. The bank that enables this keeps the relationship even when the customer does not live inside its app.</p>
+
+      <h3>New revenue</h3>
+      <p>APIs become monetizable: Banking-as-a-Service, embedded finance, API marketplaces, and data-driven services. Instead of selling only products the bank originates itself, a bank sells capabilities the market composes into products.</p>
+
+      <h3>Faster innovation</h3>
+      <p>An API-enabled ecosystem reduces time to market and lets institutions experiment with partners. A fintech can build a lending product on the bank's rails in months, which means the bank's platform is evaluated in the same months instead of years.</p>
+
+      <h3>Competitive position</h3>
+      <p>Established banks hold two assets startups cannot buy: trust and a customer base. Open Banking lets them combine that trust with the speed of a fintech. That combination is the defensible position in the next decade.</p>
+
+      <h2><span class="num">4</span>The transformation challenge</h2>
+      <p>The benefits are widely understood, and partly because they are, most failed programs are not failed technology projects. They are failed organizational projects. The recurring blockers are legacy platform dependencies, siloed structures, fragmented customer data, regulatory pressure, security concerns, and resistance to change.</p>
+      <p>A transformation holds together only when it advances on three dimensions at once:</p>
+      <ul>
+        <li><strong>Technology.</strong> Modern platforms, APIs, cloud infrastructure, analytics, and security capabilities.</li>
+        <li><strong>Strategy.</strong> Customer-centric product design and ecosystem-driven business models.</li>
+        <li><strong>Culture.</strong> Collaborative ways of working, with agility, innovation, and continuous learning as habits, not initiatives.</li>
+      </ul>
+      <p>Build all three. The order matters less than the balance.</p>
+
+      <h2><span class="num">5</span>Enterprise agility as the first enabler</h2>
+      <p>Agility is not a delivery methodology. It is the organizational capability to respond fast to a change in customer demand, market conditions, or regulation, and to do it without a six-month project to start.</p>
+      <h3>The parts of it</h3>
+      <ul>
+        <li><strong>Vision alignment.</strong> Leadership, business units, and technology teams agree on the same objective and measure the same result.</li>
+        <li><strong>Customer-centric decisions.</strong> Customer outcomes, not internal hand-offs, decide what gets built.</li>
+        <li><strong>Cross-functional teams.</strong> Product, engineering, risk, and operations sit together around a value stream instead of in separate departments.</li>
+        <li><strong>Continuous learning.</strong> Experiment, measure, and adjust in short cycles, with failure treated as data.</li>
+      </ul>
+      <h3>The return</h3>
+      <ul>
+        <li>Faster product delivery and better responsiveness.</li>
+        <li>Better customer outcomes and engagement.</li>
+        <li>More innovation capacity at more operation complexity.</li>
+      </ul>
+      <p>Enterprise agility is what makes the API program more than a project: it is the discipline that keeps the program alive after the first release.</p>
+
+      <h2><span class="num">6</span>API-first architecture as the second enabler</h2>
+      <p>APIs are no longer the plumbing behind a system; they are the system. An API-first approach designs the interface before the application, versions it like a product, and treats it as something both internal teams and external partners consume.</p>
+      <h3>Why it wins</h3>
+      <ul>
+        <li><strong>Faster development.</strong> Teams build in parallel against agreed contracts.</li>
+        <li><strong>Reusability.</strong> One capability serves many products and channels.</li>
+        <li><strong>Lower cost.</strong> Reuse removes duplication of effort.</li>
+        <li><strong>Developer experience.</strong> Standard, documented interfaces raise external adopters and internal teams alike.</li>
+        <li><strong>Scalability.</strong> Microservices and modular architecture let pieces grow independently.</li>
+      </ul>
+      <p>An API-first bank can evolve its core one capability at a time, replacing pieces behind the interface without redrawing the map for everyone who built on it.</p>
+
+      <h2><span class="num">7</span>A framework that holds</h2>
+      <p>Open Banking value is realized through enterprise-wide API governance. Four layers carry it:</p>
+      <ul>
+        <li><strong>API strategy and governance.</strong> Vision, roadmap, standards, policies, security controls, and ownership.</li>
+        <li><strong>API product management.</strong> Lifecycle management, product strategy, consumer onboarding, and monetization models.</li>
+        <li><strong>API platform.</strong> Security, authentication, monitoring, analytics, documentation, and a developer portal.</li>
+        <li><strong>API operations.</strong> Continuous monitoring, performance optimization, and lifecycle governance in production.</li>
+      </ul>
+      <p>The same framework applies whether the institution is publishing its first API or running a partner marketplace.</p>
+
+      <h2><span class="num">8</span>Where this is heading</h2>
+      <p>The end state is not Open Banking as a compliance channel. It is a financial ecosystem in which banks sit alongside fintechs, payment networks, insurers, merchants, and governments, composing journeys that cross all of them: embedded lending, embedded payments, digital identity, real-time advice, AI-powered services. Open Banking is the foundation those models are built on, and the banks that build the foundation first get to host the market.</p>
+
+      <h2><span class="num">9</span>What to do this year</h2>
+      <ol>
+        <li><strong>Adopt a "think big, start small" approach.</strong> Begin with a high-value proof of value and scale only after it proves itself.</li>
+        <li><strong>Build the agile engine.</strong> Value streams, shared objectives, and short cycles, before stacking more programs on them.</li>
+        <li><strong>Stand up API governance.</strong> Standards, ownership, and policies owned by a real body, not a slide.</li>
+        <li><strong>Expose one high-value capability API-first.</strong> Treat it as a product with consumers and metrics.</li>
+        <li><strong>Modernize the legacy base behind the API.</strong> Decompose in a map, not a big bang.</li>
+        <li><strong>Make data sharing a culture.</strong> Encourage responsible collaboration and accountable data ownership.</li>
+        <li><strong>Pick partners and run the loop.</strong> The ecosystem practices, not the planning documents, teach the bank what it needs next.</li>
+      </ol>
+
+      <h2><span class="num">10</span>Conclusion</h2>
+      <p>Open Banking is the industry's financing to the fact that the customer, not the institution, is the center of the financial system. Winning in it asks two things of a bank: the agility to move as fast as its best fintech partner, and an architecture that turns the core into products anyone can build on. Banks that build both will not just survive the shift they will become the platform others build on.</p>
+
+      <div class="colophon">
+        <strong>About this paper</strong><br>
+        Part of the AI-Ready Banking white paper series. Written for banking, fintech, and product teams designing the AI layer of a regulated business. August 2026. Free to read, share, and cite.
+      </div>
+    </article>
+
+    <aside class="download-card" aria-label="Paper download">
+      <p class="dc-label">Download</p>
+      <p class="dc-file">Future of Banking: Open Banking</p>
+      <p class="dc-meta">PDF 41 KB - 6 pages</p>
+      <a href="future-of-banking-open-banking.pdf">Download PDF</a>
+      <p class="dc-note">Typeset at A4 with a cover page, ready to print or attach.</p>
+    </aside>
   </div>
 
 </main>
 
 <footer class="site-footer wrap">
-  <span><span class="strong">AI-Ready Banking</span> &middot; free white paper series</span>
-  <span>Paper 03 of the series. <a href="../index.html" style="color:inherit">Back to the index</a>.</span>
+  <span><span class="strong">AI-Ready Banking</span> - free white paper series</span>
+  <span>Paper 03 of the series. <a href="../index.html">Back to the index</a>.</span>
 </footer>
 
 </body>
