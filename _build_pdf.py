@@ -70,6 +70,15 @@ PAPERS = [
         "date": "August 2026",
         "subject": "Why cybersecurity is the strategic foundation of digital banking: data protection, fraud prevention, trust, compliance, and operational resilience.",
     },
+    {
+        "slug": "cloud-transformation-strategic-imperatives-challenges-outcomes",
+        "no": "05",
+        "title": "Cloud Transformation: Strategic Imperatives, Challenges, and Outcomes",
+        "cover": ["Cloud Transformation:", "Strategic Imperatives,", "Challenges, and Outcomes"],
+        "subtitle": "The drivers behind enterprise cloud adoption, a phased implementation framework, the challenges that derail migrations, and the outcomes organizations measure once they arrive.",
+        "date": "August 2026",
+        "subject": "Drivers, implementation frameworks, and organizational impacts of enterprise cloud adoption.",
+    },
 ]
 
 

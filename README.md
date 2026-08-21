@@ -12,6 +12,7 @@ Published for free on GitHub Pages. No paywalls, no gated content.
 | 02 | The Strategic Benefits of REST APIs in Open Banking | Published |
 | 03 | Future of Banking: Open Banking | Published |
 | 04 | Why Cybersecurity is Important in Banking | Published |
+| 05 | Cloud Transformation: Strategic Imperatives, Challenges, and Outcomes | Published |
 
 ## Structure
 
